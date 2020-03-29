@@ -1,0 +1,26 @@
+// -----------------------------------------------------------------------------
+// Default theme
+// -----------------------------------------------------------------------------
+
+
+// placeholder text
+.form-control {
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-style: italic;
+  }
+
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    font-style: italic;
+  }
+
+  &::-ms-input-placeholder { /* Microsoft Edge */
+    font-style: italic;
+  }
+}
+
+// remove spinner arrows in number inputs
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

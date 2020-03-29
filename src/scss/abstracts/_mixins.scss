@@ -1,0 +1,9 @@
+// -----------------------------------------------------------------------------
+// Mixins
+// -----------------------------------------------------------------------------
+
+// rem-Berechnung (zu $font-size-base)
+@function calc-rem($size, $base: $font-size-base) {
+  $rem-size: $size / $base;
+  @return $rem-size * 1rem;
+}
