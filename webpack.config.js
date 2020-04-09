@@ -116,17 +116,8 @@ module.exports = {
                   return `images/${url}`;
                 }
               },
+              esModule: false,
               name: '[name].[ext]',
-            },
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              disable: process.env.NODE_ENV !== 'production', // Disable during development
-              mozjpeg: {
-                progressive: true,
-                quality: 75
-              },
             },
           }
         ],
@@ -156,32 +147,33 @@ module.exports = {
   devServer: {
     contentBase: path.join(__dirname, 'dist'),
     //compress: true,
+    //hot: true,
     port: 9000
   },
   plugins: [
-    ...pages,
-    // new HtmlWebpackPlugin({
-    //   template: './src/html/index.html',
-    //   filename: 'index.html',
-    //   hash: true,
-    // }),
-    // new HtmlWebpackPlugin({
-    //   template: './src/html/404.html',
-    //   filename: '404.html',
-    //   hash: true,
-    // }),
-    new HtmlBeautifyPlugin({
-      config: {
-        html: {
-          end_with_newline: true,
-          indent_size: 2,
-          indent_with_tabs: false,
-          no_preserve_newlines: true,
-          //extra_liners: ['a','i','input','section', 'article'],
-          //unformatted: ['p', 'i', 'b', 'span']
-        }
-      }
+    //...pages,
+    new HtmlWebpackPlugin({
+      template: './src/html/index.html',
+      filename: 'index.html',
+      hash: true,
     }),
+    new HtmlWebpackPlugin({
+      template: './src/html/404.html',
+      filename: '404.html',
+      hash: true,
+    }),
+    // new HtmlBeautifyPlugin({
+    //   config: {
+    //     html: {
+    //       end_with_newline: true,
+    //       indent_size: 2,
+    //       indent_with_tabs: false,
+    //       no_preserve_newlines: true,
+    //       //extra_liners: ['a','i','input','section', 'article'],
+    //       //unformatted: ['p', 'i', 'b', 'span']
+    //     }
+    //   }
+    // }),
     new MiniCssExtractPlugin({
       filename: './css/styles.css'
     }),
